@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">WeBuy</string>
+
+    <!-- ACTIONS -->
+    <string name="signup_action">Sign Up</string>
+    <string name="login_action">Log In</string>
+    <string name="checkout_action">Checkout</string>
+    <string name="account_info_action">Account information</string>
+    <string name="payment_info_action">Payment information</string>
+
+    <!-- TITLES -->
+    <string name="promotions_title">Promotions</string>
+    <string name="newest_promotions_title">Newest</string>
+    <string name="recommended_promotions_title">Recommended</string>
+    <string name="most_bought_promotions_title">Most Bought</string>
+
+    <string name="shops_title">Shops</string>
+    <string name="shopping_cart_title">Shopping Cart</string>
+    <string name="profile_title">Profile</string>
+
+    <string name="promotion_description_title">Description</string>
+    <string name="promotion_reviews_title">Reviews</string>
+
+    <string name="profile_info_title">Info</string>
+
+    <!-- INFO -->
+    <string name="name_label_info">Name</string>
+    <string name="email_label_info">Email</string>
+    <string name="password_label_info">Password</string>
+
+    <string name="total_checkout_info">Total:</string>
+
 </resources>

@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.webuy.R;
 
-public class SignupActivity extends AppCompatActivity {
+public class AuthenticationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_main);
     }
 }

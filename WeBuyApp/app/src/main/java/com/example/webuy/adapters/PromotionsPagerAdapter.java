@@ -9,6 +9,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.webuy.R;
+import com.example.webuy.fragments.MostBoughtPromotionsFragment;
+import com.example.webuy.fragments.NewestPromotionsFragment;
+import com.example.webuy.fragments.RecommendationsFragment;
 
 public class PromotionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -23,6 +26,15 @@ public class PromotionsPagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
+        switch (position) {
+            case 0:
+                return RecommendationsFragment.newInstance();
+            case 1:
+                return NewestPromotionsFragment.newInstance();
+            case 2:
+                return MostBoughtPromotionsFragment.newInstance();
+        }
+
         return null;
     }
 

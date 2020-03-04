@@ -12,6 +12,8 @@
     <string name="payment_info_action">Payment information</string>
     <string name="nav_drawer_open">Open Nav Drawer</string>
     <string name="nav_drawer_close">Close Nav Drawer</string>
+    <string name="search_action">Search</string>
+    <string name="sort_action">Sort</string>
 
     <!-- TITLES -->
     <string name="promotions_title">Promotions</string>

@@ -23,7 +23,7 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/authTabLayout"
+        android:id="@+id/auth_tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="fixed"
@@ -31,7 +31,7 @@
         />
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/authViewPager"
+        android:id="@+id/auth_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

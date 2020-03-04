@@ -10,6 +10,8 @@
     <string name="checkout_action">Checkout</string>
     <string name="account_info_action">Account information</string>
     <string name="payment_info_action">Payment information</string>
+    <string name="nav_drawer_open">Open Nav Drawer</string>
+    <string name="nav_drawer_close">Close Nav Drawer</string>
 
     <!-- TITLES -->
     <string name="promotions_title">Promotions</string>

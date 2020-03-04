@@ -9,27 +9,20 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.webuy.R;
-import com.example.webuy.fragments.LoginFragment;
-import com.example.webuy.fragments.SignupFragment;
 
-public class AuthPagerAdapter extends FragmentPagerAdapter {
-    private final int PAGE_COUNT = 2;
+public class PromotionsPagerAdapter extends FragmentPagerAdapter {
+
+    private final int PAGE_COUNT = 3;
     private Context context;
 
-    public AuthPagerAdapter(FragmentManager fm, Context context) {
+    public PromotionsPagerAdapter(@NonNull FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
-        switch (position) {
-            case 0:
-                return SignupFragment.newInstance();
-            case 1:
-                return LoginFragment.newInstance();
-        }
-
         return null;
     }
 
@@ -43,9 +36,11 @@ public class AuthPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return context.getString(R.string.signup_action);
+                return context.getString(R.string.recommended_promotions_title);
             case 1:
-                return context.getString(R.string.login_action);
+                return context.getString(R.string.newest_promotions_title);
+            case 2:
+                return context.getString(R.string.most_bought_promotions_title);
         }
 
         return null;

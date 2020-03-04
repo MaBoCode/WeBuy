@@ -26,8 +26,8 @@ public class AuthenticationActivity extends AppCompatActivity {
     }
 
     private void init() {
-        authViewPager = findViewById(R.id.authViewPager);
-        authTab = findViewById(R.id.authTabLayout);
+        authViewPager = findViewById(R.id.auth_view_pager);
+        authTab = findViewById(R.id.auth_tab);
 
         authPagerAdapter = new AuthPagerAdapter(getSupportFragmentManager(), AuthenticationActivity.this);
     }

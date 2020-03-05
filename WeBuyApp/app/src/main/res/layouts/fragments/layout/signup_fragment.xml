@@ -1,52 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingHorizontal="20dp"
-    android:gravity="center_vertical"
+    style="@style/AppTheme.AuthLinearLayout"
     >
 
-    <!-- Name Input -->
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/TextInputLayout"
+    <LinearLayout
+        style="@style/AppTheme.TextInputLinearLayout"
         >
-        <EditText
-            android:id="@+id/nameEditText"
-            style="@style/EditText"
-            android:inputType="textPersonName"
-            android:hint="@string/name_label_info"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+        <!-- Name Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/AppTheme.TextInputLayout"
+            >
+            <EditText
+                android:id="@+id/name_edit_text"
+                style="@style/AppTheme.EditText"
+                android:inputType="textPersonName"
+                android:hint="@string/name_label_info"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Email Input -->
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/TextInputLayout"
-        >
-        <EditText
-            android:id="@+id/emailEditText"
-            style="@style/EditText"
-            android:inputType="textEmailAddress"
-            android:hint="@string/email_label_info"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+        <!-- Email Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/AppTheme.TextInputLayout"
+            >
+            <EditText
+                android:id="@+id/email_edit_text"
+                style="@style/AppTheme.EditText"
+                android:inputType="textEmailAddress"
+                android:hint="@string/email_label_info"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Password Input -->
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/TextInputLayout"
-        app:passwordToggleEnabled="true"
-        >
-        <EditText
-            android:id="@+id/passwordEditText"
-            style="@style/EditText"
-            android:inputType="textPassword"
-            android:hint="@string/password_label_info"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+        <!-- Password Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/AppTheme.TextInputLayout"
+            app:passwordToggleEnabled="true"
+            >
+            <EditText
+                android:id="@+id/password_edit_text"
+                style="@style/AppTheme.EditText"
+                android:inputType="textPassword"
+                android:hint="@string/password_label_info"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
     <!-- Submit Button -->
     <com.google.android.material.button.MaterialButton
-        style="@style/ButtonDefault"
+        android:id="@+id/signup_submit_button"
+        style="@style/AppTheme.Button"
         android:text="@string/signup_action" />
 
 </LinearLayout>

@@ -1,17 +1,10 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorPrimaryDark</item>
-
-        <!-- EditText -->
-        <item name="colorControlNormal">@color/colorPrimary</item>
-
-        <!-- Button -->
-        <item name="colorButtonNormal">@color/colorPrimaryDark</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -19,24 +12,79 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="TextInputLayout" parent="AppTheme.NoActionBar">
+    <style name="AppTheme.TabLayout">
+        <item name="tabIndicatorColor">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.TextInputLayout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
     </style>
 
-    <style name="EditText" parent="AppTheme.NoActionBar">
+    <style name="AppTheme.EditText">
         <item name="android:background">@color/white</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="ButtonDefault" parent="AppTheme.NoActionBar">
+    <style name="AppTheme.Button">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:layout_height">60dp</item>
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+        <item name="android:layout_weight">0</item>
+        <item name="android:layout_marginBottom">25dp</item>
+    </style>
+
+    <style name="AppTheme.Button.Accent" parent="AppTheme.Button">
+
+    </style>
+
+    <style name="RecyclerViewStyle" parent="AppTheme">
+        <item name="android:scrollbars">none</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@color/lightGrey</item>
+        <item name="android:layout_height">?attr/maxButtonHeight</item>
+    </style>
+
+    <style name="AppTheme.AuthLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+    </style>
+
+    <style name="AppTheme.TextInputLinearLayout">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="AppTheme.Text">
+
+    </style>
+
+    <style name="AppTheme.Text.Description">
+
+    </style>
+
+    <style name="AppTheme.Text.OldPrice">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+        <item name="android:fontFamily">@string/font_light</item>
+    </style>
+
+    <style name="AppTheme.Text.NewPrice">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6</item>
+        <item name="fontFamily">@string/font_bold</item>
+        <item name="android:layout_marginLeft">12dp</item>
     </style>
 
 </resources>

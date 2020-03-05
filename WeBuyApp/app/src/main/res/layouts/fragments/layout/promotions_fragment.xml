@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         app:tabMode="fixed"
         app:tabTextAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        style="@style/AppTheme.TabLayout"
         />
 
     <androidx.viewpager.widget.ViewPager

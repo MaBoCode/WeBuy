@@ -3,7 +3,7 @@
 
     <!-- USER DATA -->
     <string name="user_name">Matthias Brown</string>
-
+    <string name="user_email">myemail@gmail.com</string>
     <!-- ACTIONS -->
     <string name="signup_action">Sign Up</string>
     <string name="login_action">Log In</string>
@@ -38,4 +38,10 @@
     <string name="password_label_info">Password</string>
 
     <string name="total_checkout_info">Total:</string>
+
+    <!-- FONTS -->
+    <string name="font_light">sans-serif-light</string>
+    <string name="font_medium">sans-serif-medium</string>
+    <string name="font_bold">sans-serif-bold</string>
+
 </resources>

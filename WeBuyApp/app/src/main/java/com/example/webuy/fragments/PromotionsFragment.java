@@ -15,6 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.webuy.R;
 import com.example.webuy.activities.DrawerActivity;
+import com.example.webuy.adapters.PromotionRecyclerViewAdapter;
 import com.example.webuy.adapters.PromotionsPagerAdapter;
 import com.example.webuy.utils.DebugHelper;
 import com.google.android.material.tabs.TabLayout;
@@ -27,10 +28,9 @@ public class PromotionsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         changeTitle();
 
-         return inflater.inflate(R.layout.promotions_fragment, container, false);
+        return inflater.inflate(R.layout.promotions_fragment, container, false);
     }
 
     @Override
@@ -39,7 +39,6 @@ public class PromotionsFragment extends Fragment {
 
         setAttributes(view);
         link();
-
     }
 
     public void changeTitle() {
@@ -49,7 +48,7 @@ public class PromotionsFragment extends Fragment {
     public void setAttributes(View view) {
         promotionsViewPager = view.findViewById(R.id.promotions_view_pager);
         promotionsTab = view.findViewById(R.id.promotions_tab);
-        promotionsPagerAdapter = new PromotionsPagerAdapter(getActivity().getSupportFragmentManager(), getContext());
+        promotionsPagerAdapter = new PromotionsPagerAdapter(getChildFragmentManager(), getContext());
     }
 
     public void link() {

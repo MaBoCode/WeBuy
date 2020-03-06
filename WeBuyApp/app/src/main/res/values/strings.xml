@@ -14,6 +14,7 @@
     <string name="nav_drawer_close">Close Nav Drawer</string>
     <string name="search_action">Search</string>
     <string name="sort_action">Sort</string>
+    <string name="toolbar_scroll_behavior">Hide Toolbar</string>
 
     <!-- TITLES -->
     <string name="promotions_title">Promotions</string>
@@ -43,5 +44,9 @@
     <string name="font_light">sans-serif-light</string>
     <string name="font_medium">sans-serif-medium</string>
     <string name="font_bold">sans-serif-bold</string>
+
+    <!-- TRANSITIONS -->
+    <string name="title_transition">detail:header:title</string>
+    <string name="image_transition">detail:header:image</string>
 
 </resources>

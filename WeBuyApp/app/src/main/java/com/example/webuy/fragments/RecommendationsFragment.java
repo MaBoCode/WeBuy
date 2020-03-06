@@ -1,5 +1,6 @@
 package com.example.webuy.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +9,17 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.webuy.R;
+import com.example.webuy.activities.PromotionDetailsActivity;
 import com.example.webuy.adapters.PromotionRecyclerViewAdapter;
+import com.example.webuy.interfaces.IFragment;
 import com.example.webuy.models.PromotionModel;
 import com.example.webuy.utils.DebugHelper;
 import com.example.webuy.utils.PromotionMarginDecoration;
@@ -21,7 +27,7 @@ import com.example.webuy.utils.PromotionMarginDecoration;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class RecommendationsFragment extends Fragment implements PromotionRecyclerViewAdapter.OnItemClickListener {
+public class RecommendationsFragment extends Fragment implements PromotionRecyclerViewAdapter.OnItemClickListener, IFragment {
 
     private RecyclerView recyclerView;
     private PromotionRecyclerViewAdapter adapter;
@@ -52,6 +58,7 @@ public class RecommendationsFragment extends Fragment implements PromotionRecycl
         link();
     }
 
+    @Override
     public void setAttributes(View view) {
         recyclerView = view.findViewById(R.id.promotion_recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -60,6 +67,12 @@ public class RecommendationsFragment extends Fragment implements PromotionRecycl
         adapter = new PromotionRecyclerViewAdapter(getContext(), getDataModel(), this);
     }
 
+    @Override
+    public void setStyles() {
+
+    }
+
+    @Override
     public void link() {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
@@ -71,8 +84,19 @@ public class RecommendationsFragment extends Fragment implements PromotionRecycl
     }
 
     @Override
-    public void onPromotionCardClick(int position) {
+    public void onPromotionCardClick(View itemView, int position) {
 
+        Bundle bundle = getCardBundle(position);
+        Intent intent = new Intent(getContext(), PromotionDetailsActivity.class);
+        ActivityOptionsCompat activityOptions = getActivityOptions(itemView);
+
+        intent.putExtras(bundle);
+
+
+        startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity()).toBundle());
+    }
+
+    public Bundle getCardBundle(int position) {
         Bundle bundle = new Bundle();
 
         View item = recyclerView.findViewHolderForAdapterPosition(position).itemView;
@@ -82,18 +106,22 @@ public class RecommendationsFragment extends Fragment implements PromotionRecycl
         TextView oldPriceView = item.findViewById(R.id.old_price_view);
         TextView newPriceView = item.findViewById(R.id.new_price_view);
 
-        ArrayList<String> card_data = new ArrayList<>(Arrays.asList(
-                titleView.getText().toString(),
-                descriptionView.getText().toString(),
-                oldPriceView.getText().toString(),
-                newPriceView.getText().toString()
-        ));
+        bundle.putString("card_title", titleView.getText().toString());
+        bundle.putString("card_description", descriptionView.getText().toString());
+        bundle.putString("card_old_price", oldPriceView.getText().toString());
+        bundle.putString("card_new_price", newPriceView.getText().toString());
 
-        bundle.putStringArrayList("card_data", card_data);
+        return bundle;
+    }
 
-        PromotionDetailsFragment fragment = PromotionDetailsFragment.newInstance();
-        fragment.setArguments(bundle);
+    public ActivityOptionsCompat getActivityOptions(View itemView) {
 
-        getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+        Pair<View, String> title = new Pair<>(itemView.findViewById(R.id.title_view), getString(R.string.title_transition));
+        Pair<View, String> image = new Pair<>(itemView.findViewById(R.id.product_image), getString(R.string.image_transition));
+
+
+        ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), title, image);
+
+        return activityOptions;
     }
 }

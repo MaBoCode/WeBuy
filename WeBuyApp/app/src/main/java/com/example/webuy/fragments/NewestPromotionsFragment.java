@@ -14,11 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.webuy.R;
 import com.example.webuy.adapters.PromotionRecyclerViewAdapter;
+import com.example.webuy.interfaces.IFragment;
 import com.example.webuy.models.PromotionModel;
 import com.example.webuy.utils.DebugHelper;
 import com.example.webuy.utils.PromotionMarginDecoration;
 
-public class NewestPromotionsFragment extends Fragment implements PromotionRecyclerViewAdapter.OnItemClickListener {
+public class NewestPromotionsFragment extends Fragment implements PromotionRecyclerViewAdapter.OnItemClickListener, IFragment {
 
     private RecyclerView recyclerView;
     private PromotionRecyclerViewAdapter adapter;
@@ -48,6 +49,7 @@ public class NewestPromotionsFragment extends Fragment implements PromotionRecyc
         link();
     }
 
+    @Override
     public void setAttributes(View view) {
         recyclerView = view.findViewById(R.id.newest_promotions_recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -56,6 +58,12 @@ public class NewestPromotionsFragment extends Fragment implements PromotionRecyc
         adapter = new PromotionRecyclerViewAdapter(getContext(), getDataModel(), this);
     }
 
+    @Override
+    public void setStyles() {
+
+    }
+
+    @Override
     public void link() {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
@@ -67,7 +75,7 @@ public class NewestPromotionsFragment extends Fragment implements PromotionRecyc
     }
 
     @Override
-    public void onPromotionCardClick(int position) {
+    public void onPromotionCardClick(View itemView, int position) {
         DebugHelper.toast(getContext(), String.valueOf(position));
     }
 }

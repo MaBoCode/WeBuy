@@ -7,7 +7,14 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="AppTheme.Button.Accent" parent="AppTheme.Button">
-        <item name="android:backgroundTint">@color/colorAccent</item>
+    <style name="Button.Light">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:backgroundTint">@color/darkGrey</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Transition" parent="AppTheme.NoActionBar">
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/slide_bottom</item>
+        <item name="android:windowExitTransition">@android:transition/slide_top</item>
     </style>
 </resources>

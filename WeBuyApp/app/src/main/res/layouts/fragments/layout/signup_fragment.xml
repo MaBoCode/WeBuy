@@ -45,9 +45,9 @@
     </LinearLayout>
 
     <!-- Submit Button -->
-    <com.google.android.material.button.MaterialButton
+    <include layout="@layout/button"
+        style="@style/Button.Light"
         android:id="@+id/signup_submit_button"
-        style="@style/AppTheme.Button"
-        android:text="@string/signup_action" />
+        />
 
 </LinearLayout>

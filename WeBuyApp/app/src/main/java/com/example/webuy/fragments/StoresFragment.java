@@ -16,10 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.webuy.R;
 import com.example.webuy.activities.DrawerActivity;
 import com.example.webuy.adapters.StoreRecyclerViewAdapter;
+import com.example.webuy.interfaces.IFragment;
 import com.example.webuy.models.StoreModel;
 import com.example.webuy.utils.StoreMarginDecoration;
 
-public class StoresFragment extends Fragment {
+public class StoresFragment extends Fragment implements IFragment {
 
     private RecyclerView recyclerView;
     private StoreRecyclerViewAdapter adapter;
@@ -36,7 +37,7 @@ public class StoresFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        changeTitle();
+        setTitle();
 
         return inflater.inflate(R.layout.stores_fragment, container, false);
     }
@@ -55,6 +56,7 @@ public class StoresFragment extends Fragment {
         inflater.inflate(R.menu.menu_action, menu);
     }
 
+    @Override
     public void setAttributes(View view) {
         recyclerView = view.findViewById(R.id.store_recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -63,6 +65,12 @@ public class StoresFragment extends Fragment {
         adapter = new StoreRecyclerViewAdapter(getDataModel());
     }
 
+    @Override
+    public void setStyles() {
+
+    }
+
+    @Override
     public void link() {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
@@ -73,7 +81,7 @@ public class StoresFragment extends Fragment {
         return new StoreModel(20);
     }
 
-    public void changeTitle() {
+    public void setTitle() {
         ((DrawerActivity)getActivity()).setToolbarTitle(getString(R.string.shops_title));
     }
 }

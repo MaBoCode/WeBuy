@@ -42,7 +42,7 @@ public class PromotionRecyclerViewAdapter extends RecyclerView.Adapter<Promotion
 
         @Override
         public void onClick(View v) {
-            onItemClickListener.onPromotionCardClick(getAdapterPosition());
+            onItemClickListener.onPromotionCardClick(itemView, getAdapterPosition());
         }
     }
 
@@ -85,7 +85,7 @@ public class PromotionRecyclerViewAdapter extends RecyclerView.Adapter<Promotion
     }
 
     public interface OnItemClickListener {
-        void onPromotionCardClick(int position);
+        void onPromotionCardClick(View view, int position);
     }
 
 }

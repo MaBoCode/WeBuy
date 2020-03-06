@@ -13,11 +13,12 @@ import androidx.fragment.app.Fragment;
 import com.example.webuy.R;
 import com.example.webuy.activities.DrawerActivity;
 import com.example.webuy.adapters.ProfileInfoListAdapter;
+import com.example.webuy.interfaces.IFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements IFragment {
 
     private ListView profileInfoListView;
     private ProfileInfoListAdapter profileInfoListAdapter;
@@ -28,7 +29,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        changeTitle();
+        setTitle();
 
         return inflater.inflate(R.layout.profile_fragment, container, false);
     }
@@ -42,10 +43,11 @@ public class ProfileFragment extends Fragment {
         link();
     }
 
-    public void changeTitle() {
+    public void setTitle() {
         ((DrawerActivity)getActivity()).setToolbarTitle(getString(R.string.profile_title));
     }
 
+    @Override
     public void setAttributes(View view) {
         profileInfoListView = view.findViewById(R.id.profile_info_list_view);
         profileInfoItems = new ArrayList<>(Arrays.asList("Account information"));
@@ -53,8 +55,13 @@ public class ProfileFragment extends Fragment {
         profileInfoListAdapter = new ProfileInfoListAdapter(getContext(), profileInfoItems);
     }
 
+    @Override
+    public void setStyles() {
+
+    }
+
+    @Override
     public void link() {
         profileInfoListView.setAdapter(profileInfoListAdapter);
     }
-
 }

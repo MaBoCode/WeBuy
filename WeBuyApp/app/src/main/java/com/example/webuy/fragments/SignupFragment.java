@@ -8,13 +8,15 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
 import com.example.webuy.R;
 import com.example.webuy.activities.DrawerActivity;
+import com.example.webuy.interfaces.IFragment;
 import com.google.android.material.button.MaterialButton;
 
-public class SignupFragment extends Fragment {
+public class SignupFragment extends Fragment implements IFragment {
 
     private MaterialButton submitButton;
 
@@ -45,8 +47,11 @@ public class SignupFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         setAttributes(view);
+
+        setStyles();
     }
 
+    @Override
     public void setAttributes(View view) {
         submitButton = view.findViewById(R.id.signup_submit_button);
 
@@ -56,5 +61,15 @@ public class SignupFragment extends Fragment {
     public void onSubmitButtonClicked() {
         Intent intent = new Intent(getContext(), DrawerActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void setStyles() {
+        submitButton.setText(R.string.signup_action);
+    }
+
+    @Override
+    public void link() {
+
     }
 }

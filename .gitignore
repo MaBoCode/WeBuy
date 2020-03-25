@@ -1,6 +1,6 @@
 # Mac files
 .DS_Store
-
+*.zip
 # Built application files
 *.apk
 *.aar

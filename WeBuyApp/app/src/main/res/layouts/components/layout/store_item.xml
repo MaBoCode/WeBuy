@@ -18,18 +18,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:adjustViewBounds="false"
-            android:src="@drawable/store"
             android:background="@color/white"
-            />
-
-        <TextView
-            android:id="@+id/store_name"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-            android:theme="@style/Theme.MaterialComponents.Light"
-            android:background="@color/colorAccent"
-            android:visibility="invisible"
             />
 
     </androidx.cardview.widget.CardView>

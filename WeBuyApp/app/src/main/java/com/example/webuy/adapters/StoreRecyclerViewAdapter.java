@@ -3,33 +3,34 @@ package com.example.webuy.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.webuy.R;
-import com.example.webuy.models.StoreModel;
+import com.example.webuy.models.Store;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class StoreRecyclerViewAdapter extends RecyclerView.Adapter<StoreRecyclerViewAdapter.StoreItemHolder> {
-
-    private StoreModel storeModel;
+    private final String API_URL = "https://webuy.sciences.univ-tours.fr/api/v1/magasins";
+    private ArrayList<Store> stores;
 
     public static class StoreItemHolder extends RecyclerView.ViewHolder {
 
-        public TextView storeNameView;
+        public ImageView storeImageView;
 
         public StoreItemHolder(@NonNull View itemView) {
             super(itemView);
 
-            storeNameView = itemView.findViewById(R.id.store_name);
+            storeImageView = itemView.findViewById(R.id.store_image);
         }
     }
 
-    public StoreRecyclerViewAdapter(StoreModel storeModel) {
-        this.storeModel = storeModel;
+    public StoreRecyclerViewAdapter(ArrayList<Store> stores) {
+        this.stores = stores;
     }
 
     @NonNull
@@ -42,13 +43,11 @@ public class StoreRecyclerViewAdapter extends RecyclerView.Adapter<StoreRecycler
 
     @Override
     public void onBindViewHolder(@NonNull StoreItemHolder holder, int position) {
-        ArrayList<StoreModel.Store> stores = storeModel.getDataModel();
-
-        holder.storeNameView.setText(stores.get(position).getName());
+        Picasso.get().load(stores.get(position).getLogo()).fit().into(holder.storeImageView);
     }
 
     @Override
     public int getItemCount() {
-        return storeModel.getDataModel().size();
+        return stores.size();
     }
 }

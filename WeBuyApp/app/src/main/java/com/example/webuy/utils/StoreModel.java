@@ -1,4 +1,4 @@
-package com.example.webuy.models;
+package com.example.webuy.utils;
 
 import java.util.ArrayList;
 

@@ -1,5 +1,6 @@
 package com.example.webuy.fragments;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +29,7 @@ import com.example.webuy.activities.DrawerActivity;
 import com.example.webuy.adapters.StoreRecyclerViewAdapter;
 import com.example.webuy.interfaces.IFragment;
 import com.example.webuy.models.Store;
+import com.example.webuy.network.NetworkSingleton;
 import com.example.webuy.utils.DebugHelper;
 import com.example.webuy.utils.StoreMarginDecoration;
 
@@ -38,7 +41,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class StoresFragment extends Fragment implements IFragment {
+public class StoresFragment extends Fragment implements IFragment, StoreRecyclerViewAdapter.OnItemClickListener {
     private final String API_URL = "https://webuy.sciences.univ-tours.fr/api/v1/magasins";
 
     private ArrayList<Store> stores = new ArrayList<>();
@@ -94,12 +97,15 @@ public class StoresFragment extends Fragment implements IFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setTitle();
 
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, API_URL, null, responseListener, errorListener);
-        RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-        queue.add(jsonArrayRequest);
-        DebugHelper.console(String.valueOf(stores.size()));
+        loadStores();
 
         return inflater.inflate(R.layout.stores_fragment, container, false);
+    }
+
+    public void loadStores() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, API_URL, null, responseListener, errorListener);
+        //RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        NetworkSingleton.getInstance(getContext()).addToRequestQueue(jsonArrayRequest);
     }
 
     @Override
@@ -143,7 +149,7 @@ public class StoresFragment extends Fragment implements IFragment {
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new GridLayoutManager(getContext(), 2);
-        adapter = new StoreRecyclerViewAdapter(stores);
+        adapter = new StoreRecyclerViewAdapter(stores, this);
     }
 
     @Override
@@ -160,5 +166,16 @@ public class StoresFragment extends Fragment implements IFragment {
 
     public void setTitle() {
         ((DrawerActivity)getActivity()).setToolbarTitle(getString(R.string.shops_title));
+    }
+
+    @Override
+    public void onStoreItemClick(View view, int position) {
+        Store store = stores.get(position);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("store_object", store);
+
+        StorePromotionsFragment storePromotionsFragment = StorePromotionsFragment.newInstance();
+        storePromotionsFragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, storePromotionsFragment).setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
     }
 }

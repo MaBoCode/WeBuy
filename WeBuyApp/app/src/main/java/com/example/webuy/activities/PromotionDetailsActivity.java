@@ -14,11 +14,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.webuy.R;
+import com.example.webuy.models.Product;
+import com.example.webuy.models.Promotion;
 import com.squareup.picasso.Picasso;
 
 public class PromotionDetailsActivity extends AppCompatActivity {
 
-    private String title, description, oldPrice, newPrice;
+    private Promotion promotion;
+    private Product product;
     private TextView titleView, descriptionView, oldPriceView, newPriceView;
     private ImageView imageView;
 
@@ -56,11 +59,11 @@ public class PromotionDetailsActivity extends AppCompatActivity {
     }
 
     private void loadThumbNail() {
-        Picasso.get().load(R.drawable.promotion).noFade().into(imageView);
+        Picasso.get().load(product.getImage()).noFade().into(imageView);
     }
 
     private void loadFullSizeImage() {
-        Picasso.get().load(R.drawable.promotion).noFade().noPlaceholder().into(imageView);
+        Picasso.get().load(product.getImage()).noFade().noPlaceholder().into(imageView);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -103,12 +106,8 @@ public class PromotionDetailsActivity extends AppCompatActivity {
     }
 
     public void setAttributes() {
-        Bundle bundle = getIntent().getExtras();
-
-        title = bundle.getString("card_title");
-        description = bundle.getString("card_description");
-        oldPrice = bundle.getString("card_old_price");
-        newPrice = bundle.getString("card_new_price");
+        promotion = (Promotion) getIntent().getSerializableExtra("promotion_object");
+        product = (Product) getIntent().getSerializableExtra("product_object");
 
         titleView = findViewById(R.id.title_view);
         descriptionView = findViewById(R.id.description_view);
@@ -118,10 +117,11 @@ public class PromotionDetailsActivity extends AppCompatActivity {
     }
 
     public void setStyles() {
-        titleView.setText(title);
-        descriptionView.setText(description);
-        oldPriceView.setText(oldPrice);
-        newPriceView.setText(newPrice);
+        titleView.setText(product.getLabel());
+        descriptionView.setText(product.getDescription());
+        oldPriceView.setText(promotion.getOldPrice());
+        newPriceView.setText(promotion.getNewPrice());
+        Picasso.get().load(product.getImage()).into(imageView);
     }
 
     @Override

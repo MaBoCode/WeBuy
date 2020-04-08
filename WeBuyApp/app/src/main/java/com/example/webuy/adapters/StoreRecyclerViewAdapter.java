@@ -17,20 +17,29 @@ import java.util.ArrayList;
 public class StoreRecyclerViewAdapter extends RecyclerView.Adapter<StoreRecyclerViewAdapter.StoreItemHolder> {
     private final String API_URL = "https://webuy.sciences.univ-tours.fr/api/v1/magasins";
     private ArrayList<Store> stores;
+    private OnItemClickListener onItemClickListener;
 
-    public static class StoreItemHolder extends RecyclerView.ViewHolder {
+    public static class StoreItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public ImageView storeImageView;
+        public OnItemClickListener onItemClickListener;
 
-        public StoreItemHolder(@NonNull View itemView) {
+        public StoreItemHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
             super(itemView);
-
+            this.onItemClickListener = onItemClickListener;
             storeImageView = itemView.findViewById(R.id.store_image);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            onItemClickListener.onStoreItemClick(itemView, getAdapterPosition());
         }
     }
 
-    public StoreRecyclerViewAdapter(ArrayList<Store> stores) {
+    public StoreRecyclerViewAdapter(ArrayList<Store> stores, OnItemClickListener onItemClickListener) {
         this.stores = stores;
+        this.onItemClickListener = onItemClickListener;
     }
 
     @NonNull
@@ -38,7 +47,7 @@ public class StoreRecyclerViewAdapter extends RecyclerView.Adapter<StoreRecycler
     public StoreItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.store_item, parent, false);
 
-        return new StoreItemHolder(view);
+        return new StoreItemHolder(view, onItemClickListener);
     }
 
     @Override
@@ -49,5 +58,9 @@ public class StoreRecyclerViewAdapter extends RecyclerView.Adapter<StoreRecycler
     @Override
     public int getItemCount() {
         return stores.size();
+    }
+
+    public interface OnItemClickListener {
+        void onStoreItemClick(View view, int position);
     }
 }

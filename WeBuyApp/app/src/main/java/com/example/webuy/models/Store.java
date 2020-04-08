@@ -1,6 +1,8 @@
 package com.example.webuy.models;
 
-public class Store {
+import java.io.Serializable;
+
+public class Store implements Serializable {
     private int id;
     private String name, address, logo;
     private double latitude, longitude;

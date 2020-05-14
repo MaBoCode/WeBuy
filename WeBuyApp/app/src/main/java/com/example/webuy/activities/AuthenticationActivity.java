@@ -8,9 +8,11 @@ import android.os.Bundle;
 
 import com.example.webuy.R;
 import com.example.webuy.adapters.AuthPagerAdapter;
+import com.example.webuy.services.FirebaseService;
 import com.google.android.material.tabs.TabLayout;
 
 public class AuthenticationActivity extends AppCompatActivity {
+
     private ViewPager authViewPager;
     private TabLayout authTab;
     private FragmentPagerAdapter authPagerAdapter;

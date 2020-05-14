@@ -18,10 +18,13 @@ import com.example.webuy.fragments.PromotionsFragment;
 import com.example.webuy.fragments.SettingsFragment;
 import com.example.webuy.fragments.ShoppingCartFragment;
 import com.example.webuy.fragments.StoresFragment;
+import com.example.webuy.services.FirebaseService;
 import com.example.webuy.utils.DebugHelper;
 import com.google.android.material.navigation.NavigationView;
 
 public class DrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private FirebaseService firebaseService = null;
 
     private DrawerLayout navDrawer;
     ActionBarDrawerToggle toggle;
@@ -71,7 +74,12 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
                 loadFragment(new StoresFragment());
                 break;
             case R.id.cart_nav_item:
-                loadFragment(new ShoppingCartFragment());
+                firebaseService = FirebaseService.getInstance();
+                if(firebaseService.getCurrentUser() != null) {
+                    loadFragment(new ShoppingCartFragment());
+                } else {
+
+                }
                 break;
             case R.id.profile_nav_item:
                 loadFragment(new ProfileFragment());

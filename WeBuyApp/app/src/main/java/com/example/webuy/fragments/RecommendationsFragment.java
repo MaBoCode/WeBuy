@@ -127,7 +127,7 @@ public class RecommendationsFragment extends Fragment implements PromotionRecycl
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        loadProductsAndPromotions();
+        //loadProductsAndPromotions();
 
         return inflater.inflate(R.layout.recommendations_fragment, container, false);
     }

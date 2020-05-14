@@ -38,6 +38,9 @@
     <string name="email_label_info">Email</string>
     <string name="password_label_info">Password</string>
 
+    <!-- ERRORS -->
+    <string name="field_required">Required.</string>
+
     <string name="total_checkout_info">Total:</string>
 
     <!-- FONTS -->

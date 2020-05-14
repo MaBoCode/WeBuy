@@ -2,15 +2,14 @@ package com.example.webuy.adapters;
 
 import android.content.Context;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.webuy.R;
-import com.example.webuy.fragments.LoginFragment;
-import com.example.webuy.fragments.SignupFragment;
+import com.example.webuy.fragments.auth.LoginFragment;
+import com.example.webuy.fragments.auth.SignupFragment;
 
 public class AuthPagerAdapter extends FragmentPagerAdapter {
     private final int PAGE_COUNT = 2;

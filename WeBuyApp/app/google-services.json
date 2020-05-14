@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "878672404310",
+    "firebase_url": "https://webuy-703e3.firebaseio.com",
+    "project_id": "webuy-703e3",
+    "storage_bucket": "webuy-703e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878672404310:android:1583d68aa565d14f9000f7",
+        "android_client_info": {
+          "package_name": "com.example.webuy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878672404310-ie27kempqmvbc28qs1d43teb1011e8ol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOy4OeSuaEcYrxjbO-bjP2_LJx2yv0ioE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878672404310-ie27kempqmvbc28qs1d43teb1011e8ol.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878672404310:android:db7863c9c7c863df9000f7",
+        "android_client_info": {
+          "package_name": "com.google.firebase.quickstart.auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878672404310-ie27kempqmvbc28qs1d43teb1011e8ol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOy4OeSuaEcYrxjbO-bjP2_LJx2yv0ioE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878672404310-ie27kempqmvbc28qs1d43teb1011e8ol.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

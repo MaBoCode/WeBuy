@@ -3,9 +3,14 @@ package models;
 import java.util.List;
 
 public class Store {
-    private final long id;
-    private final String name;
+    private long id = -1;
+    private String name;
     private List<Promotion> promotions;
+
+    public Store(String name, List<Promotion> promotions) {
+        this.name = name;
+        this.promotions = promotions;
+    }
 
     public Store(long id, String name, List<Promotion> promotions) {
         this.id = id;

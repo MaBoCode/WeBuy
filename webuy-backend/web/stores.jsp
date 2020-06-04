@@ -11,7 +11,7 @@
     <title>Stores</title>
 </head>
 <body>
-<form method="post" action="StoreServlet">
+<form method="post" action="AddStoreServlet">
     <input type="text" placeholder="Name" name="storeName">
     <input type="file" name="storeLogo">
     <input type="submit" value="Add store">

@@ -1,6 +1,7 @@
 package utils;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
+import models.Promotion;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,9 +14,9 @@ public class DataSource {
 
     private final String SERVER_NAME = "localhost";
     private final int DEFAULT_PORT = 3306;
-    private final String DB_NAME = "webuy-db";
+    private final String DB_NAME = "webuy";
     private final String USERNAME = "matt";
-    private final String PASSWORD = "9b7-RcJ-rTf-dQ9";
+    private final String PASSWORD = "password_here";
 
     private static DataSource instance;
     private MysqlDataSource dataSource;
@@ -55,5 +56,11 @@ public class DataSource {
         Statement statement = getConnection().createStatement();
         Optional<ResultSet> result = Optional.of(statement.executeQuery(query));
         return result;
+    }
+
+    public void addStore(String name, String image) throws SQLException {
+        String query = String.format("INSERT INTO (storeName, logoImage) VALUES ('%s', '%s');", name, image);
+        Optional<ResultSet> result = execute(query);
+        System.out.println(result.toString());
     }
 }

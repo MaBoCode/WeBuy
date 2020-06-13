@@ -15,8 +15,8 @@ public class DataSource {
     private final String SERVER_NAME = "localhost";
     private final int DEFAULT_PORT = 3306;
     private final String DB_NAME = "webuy";
-    private final String USERNAME = "matt";
-    private final String PASSWORD = "password_here";
+    private final String USERNAME = "username";
+    private final String PASSWORD = "password";
 
     private static DataSource instance;
     private MysqlDataSource dataSource;

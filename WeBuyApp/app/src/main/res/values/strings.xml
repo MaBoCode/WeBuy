@@ -2,7 +2,7 @@
     <string name="app_name">WeBuy</string>
 
     <!-- USER DATA -->
-    <string name="user_name">Matthias Brown</string>
+    <string name="user_name">Username</string>
     <string name="user_email">myemail@gmail.com</string>
     <!-- ACTIONS -->
     <string name="signup_action">Sign Up</string>
